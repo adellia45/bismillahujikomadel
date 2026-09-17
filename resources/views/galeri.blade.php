@@ -16,7 +16,7 @@
 
         <h1 class="display-4 fw-bold mb-3 text-white">Galeri Foto SMKN 4 Bogor</h1>
         <p class="lead col-lg-8 mx-auto text-white-50 fs-5 mb-0">
-            Dokumentasi kegiatan, fasilitas, prestasi, dan momen berharga di SMKN 4 Bogor.
+            Dokumentasi kegiatan fasilitas, prestasi, dan momen berharga di SMKN 4 Bogor.
         </p>
     </div>
 </section>
