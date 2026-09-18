@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+
+
 <div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-lg-8">
@@ -9,7 +11,6 @@
 
             <!--tanggal unggah-->
             <p class="text-muted small mb-4">
-                <i class="bi bi-calendar3 me-1"></i>
                 {{ \Carbon\Carbon::parse($artikels->tanggal_unggah)->isoFormat('D MMMM YYYY') }}
             </p>
 
@@ -26,7 +27,7 @@
             <!--kembali-->
             <div class="mt-5">
                 <a href="javascript:history.back()" class="btn btn-outline-secondary">
-                    <i class="bi bi-arrow-left me-1"></i> Kembali
+                     Kembali
                 </a>
             </div>
         </div>

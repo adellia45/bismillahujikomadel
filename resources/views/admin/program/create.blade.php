@@ -89,7 +89,7 @@
                 </div>
              </div>
         </div>
-        <div class="d-flex gap-2 mb-5">
+        <div class="d-flex justify-content-end gap-2 mb-5">
             <a href="{{ route('admin.program.index') }}" class="btn btn-light px-4 border">Batal</a>
             <button type="submit" class="btn btn-primary px-4">Simpan Perubahan</button>
         </div>

@@ -58,14 +58,14 @@
         <div>
             <div class="d-flex align-items-center gap-2 px-2 py-3 mb-3 border-bottom">
                 <img src="{{ asset('img/logo.jpg') }}" alt="Logo SMKN 4 Bogor" style="height: 40px; width: auto;">
-                <h5 class="fw-bold mb-0 text-dark">SMKN 4 Bogor</h5>
+                <h5 class="fw-bold mb-0 text-dark">SI-Kr4bat</h5>
             </div>
 
             <!--navigasi-->
             <nav class="nav flex-column">
                 <a class="nav-link {{ request()->is('admin/dashboard') ? 'active' : ''}}" href="{{ route('admin.dashboard') }}">
                     <i class="bi bi-grid-1x2-fill"></i>
-                    <span>Dashboard</span>
+                    <span>Dasbor</span>
                 </a>
                 <a class="nav-link {{ request()->is('admin/program*') ? 'active' : ''}}" href="{{ route('admin.program.index') }}">
                     <i class="bi bi-award-fill"></i>

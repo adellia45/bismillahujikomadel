@@ -48,6 +48,7 @@
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
+            <!--tanggal unggah-->
             <div class="mb-3">
                     <label for="tanggal_unggah" class="form-label fw-bold">Tanggal Diunggah</label>
                     <input type="date"
@@ -65,7 +66,7 @@
         <div class="col-md-5">
             <div class="mb-3">
                 <label for="foto" class="form-label fw-bold">Foto</label>
-                <div class="mb-3 border rounded p-2 text-center bg-light" style="max-height: 220px; overflow: hidden;">
+                <div class="mb-2 border rounded p-2 text-center bg-light" style="max-height: 220px; overflow: hidden;">
                     @if ($galeris->foto)
                     <img id="preview-foto" src="{{ asset('storage/' . $galeris->foto) }}" alt="Preview Foto" class="img-fluid rounded" style="max-height: 200px; object-fit: contain;">
                     @endif
@@ -77,6 +78,12 @@
                 name="foto"
                 accept="image/*"
                 onchange="previewImage(event)">
+                <!--bantuan untuk file lama-->
+                @if ($galeris->foto)
+                <div class="form-text text-muted small mt-1">
+                    <i class="bi bi-info-circle me-1"></i> Biarkan kosong jika tidak ingin mengubah foto.
+                </div>
+                @endif
                 @error('foto')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -94,9 +101,15 @@
     <script>
         function previewImage(event) {
             const reader = new FileReader();
+            const output = document.getElementById('preview-foto');
+            const noPhotoText = document.getElementById('no-photo-text');
+
             reader.onload = function(){
-                const output = document.getElementById('preview-foto');
                 output.src = reader.result;
+                output.classList.remove('d-none');
+                if (noPhotoText) {
+                    noPhotoText.classList.add('d-none');
+                }
             }
             if (event.target.files[0]) {
                 reader.readAsDataURL(event.target.files[0]);

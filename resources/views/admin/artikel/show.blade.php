@@ -35,7 +35,7 @@
                         <div class="mb-4">
                              <label class="form-label fw-semibold text-muted small uppercase">Judul</label>
                              <div class="bg-light p-3 border rounded-3">
-                              <h5 class="fw-bold text-dark m-0">{{ $artikels->judul }}</h5>
+                              <h5 class="fw-semibold text-dark m-0">{{ $artikels->judul }}</h5>
                             </div>
                              </div>
                         
@@ -43,8 +43,7 @@
                         <div class="mb-4">
                             <label class="form-label fw-semibold text-muted small uppercase">Tanggal Unggah</label>
                             <div class="p-3 bg-light rounded-3 border">
-                                <span class="text-dark fw-medium">
-                                    <i class="bi bi-calendar3 me-2 text-primary"></i>
+                                <span class="text-dark fw-semibold">
                                         {{ \Carbon\Carbon::parse($artikels->tanggal_unggah)->isoFormat
                                         ('D MMMM YYYY') }}
                                 </span>
@@ -54,7 +53,7 @@
                         <div class="mb-3">
                             <label class="form-label fw-semibold text-muted small uppercase">Isi</label>
                             <div class="p-3 bg-light rounded-3 border" style="min-height: 200px;">
-                                <div class="text-dark style-decoration" style="white-space: pre-line; line-height: 1.8;">
+                                <div class="text-dark fw-semibold style-decoration" style="white-space: pre-line; line-height: 1.8;">
                                     {{ $artikels->isi }}
                                 </div>
                             </div>

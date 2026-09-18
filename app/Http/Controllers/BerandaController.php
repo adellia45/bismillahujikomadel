@@ -13,11 +13,12 @@ class BerandaController extends Controller
     {
         //mengambil semua data program keahlian
         $programs = Program::all();
+        $totalProgram = Program::count();
 
         //mengambil 4 galeri dan artikel untuk di beranda
         $galeris = Galeri::latest()->take(4)->get();
         $artikels = Artikel::latest()->take(4)->get();
 
-        return view("beranda", compact("programs","galeris","artikels"));
+        return view("beranda", compact("totalProgram", "programs","galeris","artikels"));
     }
 }

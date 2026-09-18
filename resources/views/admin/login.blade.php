@@ -36,7 +36,7 @@
                     <!--header-->
                     <div class="d-flex align-items-center justify-content-center gap-3 mb-2">
                         <img src="{{asset('img/logo.jpg')}}" alt="Logo SMKN 4 Bogor" style="height: 48px; width: auto;">
-                        <h4 class="fw-bold mb-0 text-dark">SMKN 4 Bogor</h4>
+                        <h4 class="fw-bold mb-0 text-dark">SI-Kr4bat</h4>
                     </div>
 
                     <!--sub judul-->

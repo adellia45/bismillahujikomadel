@@ -104,7 +104,7 @@
     <script>
         function previewImage(event) {
             const input = event.target;
-            const preview = document.getElementById('img-preview');
+            const preview = document.getElementById('preview-foto');
             const placeholder = document.getElementById('preview-placeholder');
 
             if(input.files && input.files[0]) {

@@ -5,7 +5,7 @@
     <!--header-->
     <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
         <div>
-            <h3 class="fw-bold text-dark m-0">Artikel & Berita</h3>
+            <h3 class="fw-bold text-dark m-0">Artikel Kr4bat</h3>
             <nav aria-label="breadcrumb" class="mt-1">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item">

@@ -5,7 +5,7 @@
     <!--header-->
     <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
         <div>
-            <h3 class="fw-bold text-dark m-0">Program Keahlian</h3>
+            <h3 class="fw-bold text-dark m-0">Program Keahlian Kr4bat</h3>
             <nav aria-label="breadcrumb" class="mt-1">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item">
@@ -24,7 +24,7 @@
 
     <!--notif success-->
     @if (session('success'))
-    <div class="alert alert-success alert-dismissble fade show shadow-sm border-0 mb-4" role="alert">
+    <div class="alert alert-success alert-dismissible fade show shadow-sm border-0 mb-4" role="alert">
         <i class="bi bi-check-cirle-fill me-2"></i> {{ session('success') }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>

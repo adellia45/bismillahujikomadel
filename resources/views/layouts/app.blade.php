@@ -38,9 +38,9 @@
 <body class="bg-light d-flex flex-column min-vh-100">
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm border-bottom">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center gap-2 fw-bold text-primary" href="{{ url('/') }}">
+            <a class="navbar-brand d-flex align-items-center gap-2 fw-bold text-dark" href="{{ url('/') }}">
                 <img src="{{ asset('img/logo.jpg') }}" alt="Logo" width="40" height="40" >
-                <span>SMKN 4 Bogor</span>
+                <span>SI-Kr4bat</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -62,7 +62,7 @@
                 </ul>
                 <div class="d-flex align-items-center mt-2 mt-lg-0">
                     <a href="{{ url('/login') }}" class="btn btn-primary fw-semibold px-3 py-2 text-white">
-                        Login Admin
+                        Login
                     </a>
                 </div>
             </div>
@@ -73,14 +73,14 @@
         @yield('content')
     </main>
 
-    <footer class="bg-dark text-white pt-5 pb-3 mt-auto">
+    <footer class="bg-primary text-white pt-5 pb-3 mt-auto">
         <div class="container text-start text-md-center" style="max-width: 1200px;">
             <div class="row g-4 mb-4 text-start">
 
             <!--profil singkat-->
             <div class="col-lg-4 col-md-6">
-                <h5 class="fw-bold text-uppercase mb-3 text-primary">SMKN 4 Bogor</h5>
-                <p class="text-white-50 small mb-3">
+                <h5 class="fw-bold text-uppercase mb-3 text-white">SMKN 4 Bogor</h5>
+                <p class="text-white small mb-3">
                     Sekolah Menengah Kejuruan Negeri 4 Bogor berfokus pada pengembangan keahlian teknologi, karakter, dan kesiapan kerja siswa.
                 </p>
 
@@ -99,36 +99,36 @@
             </div>
             <!--link cepet-->
             <div class="col-lg-3 col-md-6">
-                <h5 class="fw-bold text-uppercase mb-3 text-primary">Navigasi</h5>
+                <h5 class="fw-bold text-uppercase mb-3 text-white">Navigasi</h5>
                 <ul class="list-unstyled mb-0">
                     <li class="mb-2">
-                        <a href="{{ url('/') }}" class="text-white-50 text-decoration-none hover-white">Beranda</a>
+                        <a href="{{ url('/') }}" class="text-white text-decoration-none hover-white">Beranda</a>
                     </li>
                     <li class="mb-2">
-                        <a href="{{ url('/program-keahlian') }}" class="text-white-50 text-decoration-none hover-white">Program keahlian</a>
+                        <a href="{{ url('/program-keahlian') }}" class="text-white text-decoration-none hover-white">Program keahlian</a>
                     </li>
                     <li class="mb-2">
-                        <a href="{{ url('/galeri') }}" class="text-white-50 text-decoration-none hover-white">Galeri</a>
+                        <a href="{{ url('/galeri') }}" class="text-white text-decoration-none hover-white">Galeri</a>
                     </li>
                     <li class="mb-2">
-                        <a href="{{ url('/artikel') }}" class="text-white-50 text-decoration-none hover-white">Artikel</a>
+                        <a href="{{ url('/artikel') }}" class="text-white text-decoration-none hover-white">Artikel</a>
                     </li>
                 </ul>
             </div>
             <!--kontak-->
             <div class="col-lg-5 col-md-12">
-                <h5 class="fw-bold text-uppercase mb-3 text-primary">Hubungi Kami</h5>
-                <ul class="list-unstyled text-white-50 small mb-0">
+                <h5 class="fw-bold text-uppercase mb-3 text-white">Hubungi Kami</h5>
+                <ul class="list-unstyled text-white small mb-0">
                     <li class="mb-2 d-flex align-items-start gap-2">
-                        <i class="bi bi-geo-alt-fill text-warning fs-6"></i>
+                        <i class="bi bi-geo-alt-fill text-white fs-6"></i>
                         <span>Jl. Raya Tajur, Kp. Buntar, RT.03/RW.04, Muarasari, Kec. Bogor Selatan, Kota Bogor, Jawa barat 16137 </span>
                     </li>
                     <li class="mb-2 d-flex align-items-center gap-2">
-                        <i class="bi bi-telephone-fill text-warning fs-6"></i>
+                        <i class="bi bi-telephone-fill text-white fs-6"></i>
                         <span>0895-1654-0987</span>
                     </li>
                     <li class="d-flex align-items-center gap-2">
-                        <i class="bi bi-envelope-fill text-warning fs-6"></i>
+                        <i class="bi bi-envelope-fill text-white fs-6"></i>
                         <span>smkn4bogor@smkn4bogor.sch.id</span>
                     </li>
                 </ul>

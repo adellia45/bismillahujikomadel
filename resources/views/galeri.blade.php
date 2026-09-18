@@ -14,8 +14,8 @@
             </ol>
         </nav>
 
-        <h1 class="display-4 fw-bold mb-3 text-white">Galeri Foto SMKN 4 Bogor</h1>
-        <p class="lead col-lg-8 mx-auto text-white-50 fs-5 mb-0">
+        <h1 class="display-4 fw-bold mb-3 text-white">Galeri Kr4bat</h1>
+        <p class="lead col-lg-8 mx-auto text-white fs-5 mb-0">
             Dokumentasi kegiatan fasilitas, prestasi, dan momen berharga di SMKN 4 Bogor.
         </p>
     </div>
@@ -28,20 +28,23 @@
             
             @forelse($galeris as $galeri)
                 <div class="col-md-4 col-sm-6">
-                    <div class="card h-100 shadow-sm border-0 overflow-hidden">
-                        <div class="ratio ratio-1x1 bg-secodary-subtle">
+                    <div class="card h-100 shadow-sm border-0 overflow-hidden d-flex flex-column">
+                        <div class="ratio ratio-1x1 bg-secondary-subtle">
                         <img src="{{ asset('storage/' . $galeri->foto) }}" 
-                             class="card-img-top" 
+                             class="card-img-top object-fit-cover" 
                              alt="{{ $galeri->judul }}" >
                         </div>
-                        <div class="card-body d-flex flex-column justify-content-between p-4">
+                        <div class="card-body d-flex flex-column flex-grow-1 p-4">
                             <h5 class="card-title fw-bold text-dark mb-2 text-truncate" title="{{ $galeri->judul }}">
                                 {{ $galeri->judul }}
                             </h5>
                             
-                            <p class="card-text text-muted small m-0 mt-2">
-                                {{ $galeri->created_at ? $galeri->created_at->format('d F Y') : '' }}
+                            <!--tanggal unggah-->
+                            <div class="mt-auto">
+                            <p class="card-text text-muted small m-0 d-flex align-items-center gap-1">
+                                {{ $galeri->created_at ? $galeri->created_at->isoFormat('D MMMM YYYY') : '' }}
                             </p>
+                            </div>
                         </div>
                     </div>
                 </div>

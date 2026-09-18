@@ -14,8 +14,8 @@
             </ol>
         </nav>
 
-    <h1 class="display-4 fw-bold mb-3 text-white">Program Keahlian</h1>
-    <p class="lead col-lg-8 mx-auto text-white-50 fs-5 mb-0">
+    <h1 class="display-4 fw-bold mb-3 text-white">Program Keahlian Kr4bat</h1>
+    <p class="lead col-lg-8 mx-auto text-white fs-5 mb-0">
         SMKN 4 Bogor memiliki berbagai program keahlian yang dirancang untuk membekali siswa dengan keterampilan sesuai kebutuhan industri masa depan.
     </p>
     </div>
