@@ -50,7 +50,7 @@
                 </div>
             @empty
                 <div class="col-12 text-center py-5">
-                    <p class="text-muted fs-5 mb-0">Belum ada foto galeri yang diunggah.</p>
+                    <p class="text-muted fs-5 mb-0">Belum ada data galeri yang ditambahkan.</p>
                 </div>
             @endforelse
 

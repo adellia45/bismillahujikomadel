@@ -6,7 +6,7 @@
     <!--header-->
     <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
         <div>
-            <h3 class="fw-bold text-dark m-0">Artikel & Berita</h3>
+            <h3 class="fw-bold text-dark m-0">Artikel Kr4bat</h3>
             <nav aria-label="breadcrumb" class="mt-1">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item">
@@ -42,8 +42,8 @@
                         <!--tanggalunggah-->
                         <div class="mb-4">
                             <label class="form-label fw-semibold text-muted small uppercase">Tanggal Unggah</label>
-                            <div class="p-3 bg-light rounded-3 border">
-                                <span class="text-dark fw-semibold">
+                            <div class="bg-light p-3 border rounded-3">
+                                <span class="fw-semibold text-dark m-0">
                                         {{ \Carbon\Carbon::parse($artikels->tanggal_unggah)->isoFormat
                                         ('D MMMM YYYY') }}
                                 </span>
@@ -52,10 +52,8 @@
                         <!--isi-->
                         <div class="mb-3">
                             <label class="form-label fw-semibold text-muted small uppercase">Isi</label>
-                            <div class="p-3 bg-light rounded-3 border" style="min-height: 200px;">
-                                <div class="text-dark fw-semibold style-decoration" style="white-space: pre-line; line-height: 1.8;">
-                                    {{ $artikels->isi }}
-                                </div>
+                            <div class="bg-light p-3 border rounded-3" style="max-height: 300px; overflow-y: auto;">
+                                <div class="fw-semibold text-dark m-0" style="white-space: pre-line; line-height: 1.8;">{{ $artikels->isi }}</div>
                             </div>
                         </div>
                     </div>

@@ -5,7 +5,7 @@
     <!--header-->
     <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
         <div>
-            <h3 class="fw-bold text-dark m-0">Artikel & Berita</h3>
+            <h3 class="fw-bold text-dark m-0">Artikel Kr4bat</h3>
             <nav aria-label="breadcrumb" class="mt-1">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item">
@@ -62,7 +62,13 @@
                         <!--isi-->
                         <div class="mb-3">
                             <label for="isi" class="form-label fw-semibold">Isi</label>
-                            <textarea class="form-control @error('isi') is-invalid @enderror" name="isi" id="isi" rows="8" placeholder="Tuliskan isi artikel di sini..." required>{{ old('isi') }}</textarea>
+                            <textarea class="form-control @error('isi') is-invalid @enderror" 
+                            name="isi" 
+                            id="isi" 
+                            placeholder="Tuliskan isi artikel di sini..." 
+                            style="resize: none; overflow: hidden !important; min-height: 120px;"
+                            oninput="autoResize(this)"
+                            required>{{ old('isi') }}</textarea>
                             @error('isi')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -110,12 +116,33 @@
             if(input.files && input.files[0]) {
                 const reader = new FileReader();
                 reader.onload = function(e) {
-                    preview.src = e.target.result;
-                    preview.classList.remove('d-none');
-                    placeholder.classList.add('d-none');
+                    if(preview){
+                        preview.src = e.target.result;
+                        preview.classList.remove('d-none');
+                    }
+                    if(placeholder){
+                        placeholder.classList.add('d-none');
+                    }
                 }
                 reader.readAsDataURL(input.files[0]);
             }
         }
+        //fungsi untuk membuat textarea isi otomatis panjang ke bawah
+        function autoResize(textarea){
+            if (!textarea) return;
+            textarea.style.height = 'auto';
+            textarea.style.height = (textarea.scrollHeight) + 'px';
+        }
+
+        //di jalankan saat pertama kali halaman selesai dimuat
+        document.addEventListener('DOMContentLoaded', function(){
+            const textareaIsi = document.getElementById('isi');
+            if(textareaIsi) {
+                autoResize(textareaIsi);
+
+                textareaIsi.addEventListener('keyup', function() {autoResize(this);});
+                textareaIsi.addEventListener('change', function() {autoResize(this);});
+            }
+        });
     </script>
     @endsection

@@ -49,9 +49,7 @@
                     <div class="card-body p-4">
                         <!--deskripsi-->
                         <h6 class="fw-bold text-secondary mb-2">Deskripsi</h6>
-                        <div class="p-3 bg-light rounded border fs-5 fw-regular text-dark style-description" style="min-height: 180px; white-space: pre-line;">
-                            {{ $programs->deskripsi ?? 'Tidak ada deksripsi.' }}
-                        </div>
+                        <div class="p-3 bg-light rounded border fs-5 fw-regular text-dark style-description" style="min-height: 180px; white-space: pre-line;">{{ $programs->deskripsi ?? 'Tidak ada deksripsi.' }}</div>
                     </div>
                 </div>
              </div>

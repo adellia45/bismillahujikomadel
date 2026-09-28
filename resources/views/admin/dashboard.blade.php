@@ -59,7 +59,7 @@
                         <i class="bi bi-newspaper fs-3"></i>
                     </div>
                     <div>
-                        <h6 class="text-secondary fw-semibold mb-0">Artikel & Berita</h6>
+                        <h6 class="text-secondary fw-semibold mb-0">Artikel Kr4bat</h6>
                         <h2 class="fw-bold mb-0 text-dark">{{ $totalArtikel ?? 0 }}</h2>
                     </div>
                 </div>

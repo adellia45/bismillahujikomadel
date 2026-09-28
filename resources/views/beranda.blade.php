@@ -42,7 +42,7 @@
                 <div class="card h-100 border-0 shadow-sm bg-light">
                     <div class="card-body p-4">
                         <div class="d-flex align-items-center gap-3 mb-3">
-                            <h4 class="fw-bold m-0 text-primary">Misi Utama</h4>
+                            <h4 class="fw-bold m-0 text-primary">Misi Sekolah</h4>
                         </div>
                         <ul class="card-text text-secondary ps-3 mb-0">
                             <li class="mb-1">Menyelenggarakan pembelajaran berbasis kompetensi dan teknologi informasi.</li>
@@ -77,11 +77,10 @@
 
 <section class="py-5 bg-light">
     <div class="container" style="max-width:  1200px;">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 class="fw-bold m-0 mx-auto">Program Keahlian Kr4bat</h2>
-            <a href="{{ route('program-keahlian') }}" class="btn btn-link text-decoration-none fw-semibold">Lihat semua program keahlian &rarr;</a>
-        </div>
-        
+        <div class="position-relative d-flex justify-content-center align-items-center mb-4">
+            <h2 class="fw-bold m-0 text-center">Program Keahlian Kr4bat</h2>
+            <a href="{{ route('program-keahlian') }}" class="btn btn-link text-decoration-none fw-semibold position-absolute end-0">Lihat semua program keahlian &rarr;</a>
+        </div>        
         <div class="row g-4">
             @forelse($programs ?? [] as $item)
             <div class="col-md-3">
@@ -105,9 +104,9 @@
 <!--Galeri-->
 <section class="py-5 bg-white">
     <div class="container" style="max-width:  1200px;">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 class="fw-bold m-0 mx-auto">Galeri Sekolah Kr4bat</h2>
-            <a href="{{ route('galeri.index') }}" class="btn btn-link text-decoration-none fw-semibold">Lihat semua galeri &rarr;</a>
+        <div class="position-relative d-flex justify-content-center align-items-center mb-4">
+            <h2 class="fw-bold m-0 text-center">Galeri Kr4bat</h2>
+            <a href="{{ route('galeri.index') }}" class="btn btn-link text-decoration-none fw-semibold position-absolute end-0">Lihat semua galeri &rarr;</a>
         </div>
 
         <div class="row g-4">
@@ -131,16 +130,9 @@
                 </div> 
             </div>
             @empty  
-            @for($i = 1; $i <= 4; $i++)
-            <div class="col-md-3">
-                <div class="card h-100 shadow-sm border-0 bg-light text-center d-flex align-items-center justify-content-center" style="aspect-ratio: 1 / 1;">
-                    <div class="card-body d-flex flex-column justify-content-center">
-                        <i class="bi bi-image fs-1 text-secondary mb-2"></i>
-                        <p class="text-muted m-0">Foto Galeri {{ $i }}<br><small>(Data dari Admin CRUD)</small></p>
-                    </div>
-                </div>
+            <div class="col-12 text-center py-4">
+                <p class="text-muted">Belum ada data galeri.</p>
             </div>
-            @endfor
             @endforelse
         </div>
     </div>
@@ -149,14 +141,14 @@
 <!--artikel-->
 <section class="py-5 bg-light">
     <div class="container" style="max-width: 1200px;">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 class="fw-bold m-0 mx-auto">Artikel Terkini Kr4bat</h2>
-            <a href="{{ route('artikel.index') }}" class="btn btn-link text-decoration-none fw-semibold">Lihat semua artikel &rarr;</a>
+        <div class="position-relative d-flex justify-content-center align-items-center mb-4">
+            <h2 class="fw-bold m-0 text-center">Artikel Kr4bat</h2>
+            <a href="{{ route('artikel.index') }}" class="btn btn-link text-decoration-none fw-semibold position-absolute end-0">Lihat semua artikel &rarr;</a>
         </div>
         <div class="row g-4">
             @forelse($artikels ?? [] as $artikel)
             <div class="col-md-3">
-                <div class="card h-100 d-flex flex-column">
+                <div class="card h-100 d-flex flex-column shadow-sm border-0">
                     <!--img-->
                     <img src="{{ asset('storage/' . $artikel->gambar) }}" 
                     class="card-img-top object-fit-cover" 
@@ -183,16 +175,9 @@
                 </div>
             </div>
             @empty
-            <!--Kartu tempat data dinamis CRUD-->
-            @for($i = 1; $i <= 4; $i++)
-            <div class="col-md-3">
-                <div class="card h-100 shadow-sm border-0 bg-white text-center py-5">
-                    <div class="card-body">
-                        <p class="text-muted m-0">Artikel {{ $i }}<br><small>(Data dari Admin CRUD)</small></p>
-                    </div>
-                </div>
+            <div class="col-12 text-center py-4">
+                <p class="text-muted">Belum ada data artikel</p>
             </div>
-            @endfor
             @endforelse
         </div>
     </div>

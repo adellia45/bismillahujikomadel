@@ -5,7 +5,7 @@
     <!--header-->
     <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
         <div>
-            <h3 class="fw-bold text-dark m-0">Galeri & Foto</h3>
+            <h3 class="fw-bold text-dark m-0">Galeri Kr4bat</h3>
             <nav aria-label="breadcrumb" class="mt-1">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item">
@@ -37,7 +37,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label fw-bold">Tanggal Diunggah</label>
-                    <div class="form-control bg-light p-2 border rounded text-muted">
+                    <div class="form-control bg-light p-3 border rounded text-dark fw-semibold">
                         @if (!empty($galeris->tanggal_unggah))
                         {{ \Carbon\Carbon::parse($galeris->tanggal_unggah)->translatedFormat('d F Y') }}
                         @elseif(!empty($galeris->created_at))

@@ -58,9 +58,10 @@
         </div>
         @empty
         <!--jika belum ada data dari admin-->
-        <div class="col-12 text-centerpy-5">
-            <p class="text-muted fs-5 mb-0">Belum ada artikel atau berita yang diterbitkan.</p>
+        <div class="col-12 text-center py-5">
+            <p class="text-muted fs-5 mb-0">Belum ada data artikel yang ditambahkan.</p>
         </div>
+        
         @endforelse
         </div>
     </div>

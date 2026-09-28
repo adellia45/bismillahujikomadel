@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Admin Panel - SMKN 4 Bogor')</title>
 
+    <!--logo wesbite-->
+    <link rel="icon" type="image/jpeg" href="{{ asset('img/logo.jpg') }}">
+    <link rel="apple-touch-icon" href="{{ asset('img/logo.jpg') }}">
+
     <!--bootstrap 5 css-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!--bootstrap icons-->
