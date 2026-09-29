@@ -11,7 +11,7 @@
 
 <div class="row g-4 mb-4">
     <!--program keahlian-->
-    <div class="col-md-4">
+    <div class="col-md-3">
         <div class="card border-0 shadow-sm h-100">
             <div class="card-body p-4">
                 <div class="d-flex align-items-center gap-3 mb-2">
@@ -31,7 +31,7 @@
         </div>
     </div>
     <!--galeri-->
-    <div class="col-md-4">
+    <div class="col-md-3">
         <div class="card border-0 shadow-sm h-100">
             <div class="card-body p-4">
                 <div class="d-flex align-items-center gap-3 mb-2">
@@ -51,8 +51,8 @@
         </div>
     </div>
     <!--artikel dan berita-->
-    <div class="col-md-4">
-        <div class="card-border-0 shadow-sm h-100">
+    <div class="col-md-3">
+        <div class="card border-0 shadow-sm h-100">
             <div class="card-body p-4">
                 <div class="d-flex align-items-center gap-3 mb-2">
                     <div class="p-3 bg-primary bg-opacity-10 text-primary rounded-3">
@@ -68,6 +68,26 @@
                     <span>Lihat detail</span>
                 </a>
             </div>
+        </div>
+    </div>
+    <!--rating-->
+    <div class="col-md-3">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body p-4">
+            <div class="d-flex align-items-center gap-3 mb-2">
+                <div class="p-3 bg-primary bg-opacity-10 text-primary rounded-3">
+                    <i class="bi bi-star-fill fs-2"></i>
+                </div>
+                <div>
+                    <h6 class="text-secondary fw-semibold mb-0">Rata-rata Rating Kepuasan</h6>
+                    <h3 class="fw-bold m-0 text-dark">{{ number_format($avgRating, 1) }} / 5.0</h3>
+                </div>
+            </div>
+            <hr class="my-3 text-secondary opacity-25">
+            <div class="text-muted small fw-semibold">
+                Dari total {{ $totalRating ?? 0 }} responden
+            </div>
+        </div>
         </div>
     </div>
 </div>
@@ -146,5 +166,50 @@
             </div>
         </div>
     </div>
+    </div>
+    <!--tabel ulasan-->
+    <div class="row">
+        <div class="col-12">
+    <div class="card border-0 shadow-sm p-4">
+        <h5 class="fw-bold text-dark mb-3">Ulasan Kepuasan Terbaru</h5>
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th style="width: 15%;">Tanggal</th>
+                        <th style="width: 20%;">Nama</th>
+                        <th style="width: 15%;">Rating</th>
+                        <th style="width: 50%;">Ulasan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse($latestRatings as $r)
+                    <tr>
+                        <td class="text-muted small">
+                            {{ $r->created_at ? $r->created_at->isoFormat('D MMMM YYYY') : '-' }}
+                        </td>
+                        <td class="fw-semibold text-dark">
+                        {{ $r->nama ?? 'Anonim' }}
+                        </td>
+                        <td>
+                            @for($i = 1; $i <=5; $i++)
+                            <i class="bi bi-star-fill {{ $i <= $r->bintang ? 'text-warning' : 'text-muted opacity-25' }}"></i>
+                            @endfor
+                        </td>
+                        <td class="text-secondary">
+                        {{ $r->ulasan ?? '-' }}
+                    </td>
+                    </tr>
+                    @empty
+                    <tr>
+                        <td colspan="4" class="text-center text-muted">Belum ada data rating masuk.</td>
+                    </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
 </div>
+
 @endsection

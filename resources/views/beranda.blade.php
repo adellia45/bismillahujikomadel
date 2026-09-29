@@ -183,4 +183,80 @@
     </div>
 </section>
 
+<!--section rating-->
+<section class="py-5 bg-white border-top">
+    <div class="container" style="max-width: 600px;">
+        <div class="card border-0 shadow-sm p-4 text-center">
+            <h4 class="fw-bold mb-1">Kepuasan Pelanggan</h4>
+            <p class="text-muted small mb-3">Berikan penilaian Anda terhadap kualitas layanan website kami</p>
+
+            @if (session('success_rating'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success_rating') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+            @endif
+            <!--kotak form-->
+            <form action="{{ route('rating.store') }}" method="POST">
+                @csrf
+
+                <!--bintang-->
+                <div class="d-flex justify-content-center align-items-center gap-2 mb-3">
+                    <input type="hidden" name="bintang" id="rating-value" value="0" required>
+                    @for ($i = 1; $i <= 5; $i++)
+                    <i class="bi bi-star-fill fs-2 text-muted rating-star"
+                    data-value="{{ $i }}"
+                    style="cursor: pointer; transition: color 0.2s;"
+                    onclick="setRating({{ $i }})"
+                    onmouseover="hoverRating({{ $i }})"
+                    onmouseout="resetHover()"></i>
+                    @endfor
+                </div>
+                <!--input nama & ulasan-->
+                <div class="mb-3 text-start">
+                    <input type="text" name="nama" class="form-control mb-2" placeholder="Nama Anda (Opsional)">
+                    <textarea name="ulasan" class="form-control" rows="3" placeholder="Tulis masukan atau pesan Anda... (opsional)"></textarea>
+                </div>
+                <!--button kirim-->
+                <button type="submit" id="btn-submit-rating" class="btn btn-primary w-100 fw-semibold" disabled>Kirim Penilaian</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!--script buat bintang -->
+<script>
+    let selectedRating = 0;
+    const stars = document.querySelectorAll('.rating-star');
+    const ratingInput = document.getElementById('rating-value');
+    const submitBtn = document.getElementById('btn-submit-rating');
+
+    function setRating(val) {
+        selectedRating = val;
+        ratingInput.value = val;
+        submitBtn.disabled = false;
+        highlightStars(val);
+    }
+
+    function hoverRating(val){
+        highLightStars(val);
+    }
+
+    function resetHover(){
+        highLightStars(selectedRating);
+    }
+
+    function highLightStars(val){
+        stars.forEach((star, index) => {
+            if(index < val){
+                star.classList.remove('text-muted');
+                star.classList.add('text-warning');
+            } else {
+                star.classList.remove('text-warning');
+                star.classList.add('text-muted');
+            }
+        });
+    }
+</script>
+
 @endsection

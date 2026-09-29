@@ -5,6 +5,7 @@ use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\ProgramKeahlianController;
 use App\Http\Controllers\BerandaController;
+use App\Http\Controllers\RatingController; 
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProgramController as AdminProgramController;
@@ -35,5 +36,8 @@ Route::get('/program-keahlian/{id}', [ProgramKeahlianController::class,'show'])-
 Route::resource('artikel', ArtikelController::class);
 Route::get('/artikel/{id}', [ArtikelController::class, 'show'])->name('artikel.show');
 Route::resource('galeri', GaleriController::class);
+
+//route untuk rating
+Route::post('/rating', [RatingController::class, 'store'])->name('rating.store');
 
 
