@@ -49,7 +49,7 @@
                             <!--no-->
                             <td class="px-4 py-3 text-center fw-semibold">{{ $loop->iteration }}</td>
                             <!--judul-->
-                            <td class="px-4 py-3 fw-semi-bold text-center">
+                            <td class="px-4 py-3 fw-semi-bold text-start">
                                 {{ $item->judul }}
                             </td>
                             <!--isi-->
