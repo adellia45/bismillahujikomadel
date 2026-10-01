@@ -34,9 +34,9 @@
                         <h5 class="fw-bold text-dark mb-3">
                             {{ $item->keterangan }}
                         </h5>
-                        <p class="card-text text-muted text-justify lh-base mb-0">
+                        <div class="card-text text-muted text-justify lh-base mb-0" style="white-space: pre-line;">
                             {{ $item->deskripsi }}
-                        </p>
+                        </div>
                     </div>
                 </div>
             </div>

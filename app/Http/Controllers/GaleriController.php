@@ -15,7 +15,7 @@ class GaleriController extends Controller
     public function index()
     {
         $galeris = Galeri::latest()->get();
-        return view('galeri', compact('galeris'));
+        return view('galeri.index', compact('galeris'));
     }
 
     /**
@@ -51,7 +51,9 @@ class GaleriController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $galeri = Galeri::with(['likes', 'comments'])->findOrFail($id);
+
+        return view('galeri.show', compact('galeri'));
     }
 
     /**
@@ -99,5 +101,29 @@ class GaleriController extends Controller
     $galeri->delete();
 
     return redirect()->route('galeri.index')->with('success','Galeri berhasil dihapus!');
-}
+
+    }
+
+    public function toggleLike(Request $request, Galeri $galeri)
+    {
+        $ip = $request->ip(); //ambil IP addres pengunjung
+        $userId = auth()->id();
+
+        //cari apakah ip ini sudah like
+        $like = $galeri->likes()->where(function($query) use ($userId, $ip) {
+            if ($userId) {
+                $query->where('user_id', $userId);
+            } else {
+                $query->where('ip_address', $ip);
+            }
+        })->first();
+
+        if ($like) {
+            $like->delete(); //jika sudah like bisa unlike
+        } else {
+            $galeri->likes()->create(['user_id' => $userId, 'ip_address' => $ip]); //kalo belum jadinya disimpen
+        }
+
+        return back();
+    }
 }

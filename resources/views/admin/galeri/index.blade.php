@@ -60,23 +60,31 @@
                                 {{ \Carbon\Carbon::parse($item->tanggal_unggah)->translatedFormat('d F Y') }}
                             </td>
                             <td class="px-4 py-3 text-center">
-                                <div class="d-flex justify-content-center gap-2">
+                                <div class="d-flex justify-content-center align-items-center gap-1">
                                     <!--read-->
-                                    <a href="{{ route('admin.galeri.show', $item->id) }}" class="btn btn-sm btn-info text-white" title="Lihat Detail">
+                                    <a href="{{ route('admin.galeri.show', $item->id) }}" class="btn btn-sm btn-info text-white d-inline align-items-center justify-content-center" style="width: 38px; height: 32px;" title="Lihat Detail">
                                         <i class="bi bi-eye"></i>
                                     </a>
                                     <!--update-->
-                                    <a href="{{ route('admin.galeri.edit', $item->id) }}" class="btn btn-sm btn-warning text-white" title="Edit Data">
+                                    <a href="{{ route('admin.galeri.edit', $item->id) }}" class="btn btn-sm btn-warning text-white d-inline align-items-center justify-content-center" style="width: 38px; height: 32px;" title="Edit Data">
                                         <i class="bi bi-pencil-square"></i>
                                     </a>
                                     <!--delete-->
-                                    <form action="{{ route('admin.galeri.destroy', $item->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin menghapus foto ini?')">
+                                    <form action="{{ route('admin.galeri.destroy', $item->id) }}" method="POST" class="d-inline m-0 p-0" onsubmit="return confirm('Apakah Anda yakin ingin menghapus foto ini?')">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-danger" title="Hapus Data">
+                                        <button type="submit" class="btn btn-sm btn-danger d-inline align-items-center justify-content-center" style="width: 38px; height: 32px;" title="Hapus Data">
                                             <i class="bi bi-trash"></i>
                                         </button>
                                     </form>
+                                    <a href="{{ route('admin.galeri.interactions', $item->id) }}" class="btn btn-sm btn-outline-info d-inline align-items-center justify-content-center" style="width: 38px; height: 32px;" title="Lihat Komentar & Like">
+                                        <i class="bi bi-chat-heart"></i>
+                                        @if (($item->comments_count ?? $item->comments-count()) > 0)
+                                        <span class="positon-absolute top-0 start-100 translate-middle badge rounded-pill bg-info text-white" style="fon0.65rem">
+                                        {{ $item->comments_count ?? $item->comments->count() }}
+                                        </span>
+                                        @endif
+                                    </a>
                                 </div>
                             </td>
                         </tr>

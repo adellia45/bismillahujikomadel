@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Comment;
 use App\Models\Galeri;
+use App\Models\Like;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -13,7 +15,7 @@ class GaleriController extends Controller
     //menampilkan halaman utama tabel galeri
     public function index()
     {
-        $galeris = Galeri::latest()->get();
+        $galeris = Galeri::withCount(['comments', 'likes'])->latest()->get();
         return view('admin.galeri.index', compact('galeris')); 
     }
 
@@ -102,5 +104,29 @@ class GaleriController extends Controller
         //hapus dari database
         $galeris->delete();
         return redirect()->route('admin.galeri.index')->with('success','Foto berhasil dihapus!');
+    }
+
+    //menampilkan detail komen & like salah satu foto di admin
+    public function showInteractions(Galeri $galeri){
+        $galeri->load(['comments' => function($query){
+            $query->latest();
+        },
+        'likes'=> function($query){
+            $query->latest();
+        }
+        ]);
+        return view('admin.galeri.interactions', compact('galeri'));
+    }
+
+    //admin ngehapus komen
+    public function destroyComment(Comment $comment){
+        $comment->delete();
+        return back()->with('success','Komentar berhasil dihapus oleh Admin.');
+    }
+
+    //admin ngehapus like
+    public function destroyLike(Like $like){
+        $like->delete();
+        return back()->with('success','Like berhasil dihapus oleh Admin.');
     }
 }

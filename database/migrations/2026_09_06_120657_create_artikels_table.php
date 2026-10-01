@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('judul');
             $table->text('isi');
             $table->string('gambar')->nullable();
-            $table->date('tanggal_unggah');
+            $table->date('tanggal_unggah')->useCurrent();
             $table->timestamps();
         });
     }

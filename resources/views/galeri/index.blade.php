@@ -28,6 +28,7 @@
             
             @forelse($galeris as $galeri)
                 <div class="col-md-4 col-sm-6">
+                    <a href="{{ route('galeri.show', $galeri->id) }}" class="text-decoration-none">
                     <div class="card h-100 shadow-sm border-0 overflow-hidden d-flex flex-column">
                         <div class="ratio ratio-1x1 bg-secondary-subtle">
                         <img src="{{ asset('storage/' . $galeri->foto) }}" 
@@ -47,6 +48,7 @@
                             </div>
                         </div>
                     </div>
+                    </a>
                 </div>
             @empty
                 <div class="col-12 text-center py-5">

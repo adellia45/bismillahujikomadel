@@ -112,6 +112,7 @@
         <div class="row g-4">
             @forelse($galeris ?? [] as $galeri)
             <div class="col-md-3">
+                <a href="{{ route('galeri.show', $galeri->id) }}" class="text-decoration-none">
                 <div class="card h-100 shadow-sm border-0">
                     <img src="{{ asset('storage/' . $galeri->foto) }}" 
                     class="card-img-top object-fit-cover" 
@@ -128,6 +129,7 @@
                     @endif
                     </div>
                 </div> 
+                </a>
             </div>
             @empty  
             <div class="col-12 text-center py-4">
