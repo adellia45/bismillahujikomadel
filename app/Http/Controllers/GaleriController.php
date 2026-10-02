@@ -106,24 +106,31 @@ class GaleriController extends Controller
 
     public function toggleLike(Request $request, Galeri $galeri)
     {
-        $ip = $request->ip(); //ambil IP addres pengunjung
-        $userId = auth()->id();
+        if(auth()->check()){
+            //jika user logged in
+            $like = $galeri->likes()->where('user_id', auth()->id())->first();
 
-        //cari apakah ip ini sudah like
-        $like = $galeri->likes()->where(function($query) use ($userId, $ip) {
-            if ($userId) {
-                $query->where('user_id', $userId);
+            if($like){
+                $like->delete(); //unlike
             } else {
-                $query->where('ip_address', $ip);
+                $galeri->likes()->create([
+                    'user_id'=> auth()->id(),
+                ]);
             }
-        })->first();
-
-        if ($like) {
-            $like->delete(); //jika sudah like bisa unlike
         } else {
-            $galeri->likes()->create(['user_id' => $userId, 'ip_address' => $ip]); //kalo belum jadinya disimpen
-        }
+            //jika tamu pake ip address
+            $ip = $request->ip();
+            $like = $galeri->likes()->where('ip_address', $ip)->first();
 
+            if($like){
+                $like->delete(); //unlike
+        } else {
+            $galeri->likes()->create([
+                'ip_address' => $ip,
+                'user_id' => null,
+            ]);
+        }
+        }
         return back();
     }
 }

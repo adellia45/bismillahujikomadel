@@ -29,12 +29,12 @@
                             <form action="{{ route('galeri.like', $galeri->id) }}" method="POST" class="m-0">
                                 @csrf
                                 <button type="submit" class="btn btn-sm text-danger border-0 p-0 fw-semibold d-flex align-items-center gap-2 shadow-none">
-                                    @if ($galeri->isLikedByGuest(request()->ip()))
+                                    @if ($galeri->isLikedByGuest())
                                     <i class="bi bi-heart-fill fs-4 text-danger"></i>
                                     @else
-                                    <i class="bi bi-heart- fs-4 text-secondary"></i>
+                                    <i class="bi bi-heart fs-4 text-secondary"></i>
                                     @endif
-                                    <span class="text-dark fs-6">{{ $galeri->likes->count() }} Suka</span>
+                                    <span class="text-dark fs-6">{{ $galeri->likes()->count() }} Suka</span>
                                 </button>
                             </form>
                             <span class="text-muted small">

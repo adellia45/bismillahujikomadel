@@ -24,11 +24,19 @@ class Galeri extends Model
         return $this->likes()->where('user_id', $user->id)->exists();
     }
 
-    public function isLikedByGuest($ip) {
+    public function isLikedByGuest(?string $ip = null): bool {
+        //kalo user lagi login, masuk nya gimana user_id
         if(auth()->check()){
             return $this->likes()->where('user_id', auth()->id())->exists();
         }
-        return $this->likes()->where('ip_address', $ip)->exists();
+
+        //jika tamu, masuknya gmn ip
+        $clientIp = $ip ?? request()->ip();
+
+        if(!$clientIp){
+            return false;
+        }
+        return $this->likes()->where('ip_address', $clientIp)->exists();
     }
 
     

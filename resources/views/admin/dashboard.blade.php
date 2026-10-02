@@ -19,7 +19,7 @@
                         <i class="bi bi-award-fill fs-3"></i>
                     </div>
                     <div>
-                        <h6 class="text-secondary fw-semibold mb-0">Program Keahlian</h6>
+                        <h6 class="text-secondary fw-semibold mb-0">Program Keahlian Kr4bat</h6>
                         <h2 class="fw-bold mb-0 text-dark">{{ $totalProgram ?? 0 }}</h2>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                         <i class="bi bi-images fs-3"></i>
                     </div>
                     <div>
-                        <h6 class="text-secondary fw-semibold mb-0">Galeri</h6>
+                        <h6 class="text-secondary fw-semibold mb-0">Galeri Kr4bat</h6>
                         <h2 class="fw-bold mb-0 text-dark">{{ $totalGaleri ?? 0 }}</h2>
                     </div>
                 </div>
